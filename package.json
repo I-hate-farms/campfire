@@ -10,6 +10,7 @@
   "license": "GPLv3",
   "dependencies": {
     "grunt": "^0.4.5",
+    "highlight.js": "^8.4.0",
     "jade": "^1.9.2",
     "marked": "^0.3.3"
   },
