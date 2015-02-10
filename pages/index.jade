@@ -1,9 +1,22 @@
 extends ../layout/layout.jade
 
 block content
-	p.
-		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-		tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-		vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-		no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	.container
+		.row
+
+			.col-md-6
+				ul
+					li: a(href="/tutorials.html") Tutorials
+					li: a(href="#") Sample Apps
+					li: a(href="#") Build Systems
+
+			.col-md-6
+				pre: code.
+						public async void do_some_long_tasks () {
+						 	var i = 0;
+						 	while (i < 100000) {
+								print ("I do pretty vala code efficiently.\n");
+								i++;
+							}
+						 }
 

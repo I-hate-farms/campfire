@@ -17,7 +17,7 @@ html
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href='#page-top') Start Bootstrap
+					a.navbar-brand(href='index.html') Vala now!  
 				// Collect the nav links, forms, and other content for toggling
 				#bs-example-navbar-collapse-1.collapse.navbar-collapse
 					ul.nav.navbar-nav.navbar-right
@@ -32,20 +32,8 @@ html
 
 		block body
 			.container
-				.row
-					.col-md-2
-						ul.nav
-							li Getting Started
-								ul
-									li: a(href="/tutorials.html") Tutorials
-									li: a(href="#") Sample Apps
-									li: a(href="#") Build Systems
-							li Documentation
-								ul
-									li: a(href="#") API
-									li: a(href="#") Language Specs
-					.col-md-10
-						block content
+				block content
+
 		block footer
 			.container.footer.
 				Vala - &copy; I-hate-farms
