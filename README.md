@@ -23,3 +23,5 @@ Then run
 `grunt` will server a site on your local machine with the generated pages at http://0.0.0.0:8000/.
 
 The site resources (pages, css, etc.) are generated in `build/`.
+
+> Note: when you get newer files with `git pull` you must update your local npm repository by running `sudo npm install` again.
