@@ -1,3 +1,14 @@
+var highlight = require('highlight.js');
+var marked = require('marked');
+
+marked.setOptions({
+  highlight: function (code, lang) {
+    if (lang)
+      return highlight.highlight(lang, code, true).value;
+
+    return highlight.highlightAuto(code).value;
+  }
+});
 
 var tutorialsData = {};
 var tutorialsList = {};
@@ -22,6 +33,16 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
+          filters: {
+            highlight: function(str) {
+              var hl = highlight.highlightAuto(str).value;
+              return '<pre><code>' + hl + '</code></pre>';
+            },
+            vala: function(str) {
+              var hl = highlight.highlight('vala', str, true).value;
+              return '<pre><code>' + hl + '</code></pre>';
+            }
+          },
           data: function(dest, src) {
             if (dest.match(/tutorials\.html$/))
               return {
@@ -120,18 +141,6 @@ module.exports = function(grunt) {
       parts = parts[parts.length - 1].split('.');
       return parts[0];
     }
-
-    var marked = require('marked');
-    var highlight = require('highlight.js');
-
-    marked.setOptions({
-      highlight: function (code, lang) {
-        if (lang)
-          return highlight.highlight(lang, code, true).value;
-
-        return highlight.highlightAuto(code).value;
-      }
-    });
 
     var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
     var templateIndent = getIndentAt(template, '{{tutorial}}');
