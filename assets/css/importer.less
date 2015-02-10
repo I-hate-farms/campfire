@@ -1,0 +1,44 @@
+
+@darkPrimaryColor:   #689F38;
+@primaryColor:       #8BC34A;
+@lightPrimaryColor:  #DCEDC8;
+@textPrimaryColor:   #212121;
+@accentColor:        #CDDC39;
+@primaryTextColor:   #212121;
+@secondaryTextColor: #727272;
+@dividerColor:       #B6B6B6;
+
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900');
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: 0;
+	color: @primaryTextColor;
+}
+
+.header {
+	background-color: @primaryColor;
+	color: #fff;
+
+	width: 100%;
+	margin-bottom: 24px;
+
+	h1 {
+		margin: 0;
+		padding: 0.7em 0;
+		font-weight: 900;
+		font-size: 108px;
+	}
+}
+
+a {
+	color: @darkPrimaryColor;
+
+	&:hover {
+		color: @primaryColor;
+	}
+}
+
+.footer {
+	margin-top: 12px;
+}
