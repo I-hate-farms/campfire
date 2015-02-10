@@ -104,14 +104,26 @@ module.exports = function(grunt) {
   });
 
   grunt.registerMultiTask('assembleTutorials', 'Creates jade files for each tutorial', function() {
-    var marked = require('marked');
-    var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
+
+    function getIndentAt(text, needle) {
+      var index = text.indexOf(needle);
+      var c, end = index;
+
+      while ((c = text.charAt(index)) && c != '\n')
+        index--;
+
+      return text.substring(index + 1, end);
+    }
 
     function getBaseName(path) {
       var parts = path.split('/');
       parts = parts[parts.length - 1].split('.');
       return parts[0];
     }
+
+    var marked = require('marked');
+    var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
+    var templateIndent = getIndentAt(template, '{{tutorial}}');
 
     this.files.forEach(function(file) {
       var data = grunt.file.read(file.src[0]).split('}\n\n');
@@ -133,7 +145,8 @@ module.exports = function(grunt) {
 
       tutorialsList[section].push(header);
 
-      grunt.file.write(file.dest, template.replace('{{tutorial}}', marked(data[1]).replace(/\n/g, '')));
+      var out = template.replace('{{tutorial}}', marked(data[1]).replace(/\n/g, '\n' + templateIndent));
+      grunt.file.write(file.dest, out);
     });
   });
 
