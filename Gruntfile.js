@@ -122,10 +122,14 @@ module.exports = function(grunt) {
     }
 
     var marked = require('marked');
+    var highlight = require('highlight.js');
+
     marked.setOptions({
-      highlight: function (code, lang, cb) {
-        console.log(code, lang, cb);
-        return require('highlight.js').highlightAuto(code).value;
+      highlight: function (code, lang) {
+        if (lang)
+          return highlight.highlight(lang, code, true).value;
+
+        return highlight.highlightAuto(code).value;
       }
     });
 

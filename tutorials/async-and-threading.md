@@ -29,7 +29,7 @@ Take for example this method:
 public async void do_some_long_tasks () {
     var i = 0;
     while (i < 100000) {
-        print ("I do pretty vala code efficiently.n");
+        print ("I do pretty vala code efficiently.\n");
         i++;
     }
 }

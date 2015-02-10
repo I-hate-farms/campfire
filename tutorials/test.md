@@ -10,7 +10,7 @@ Blah blah
 * blub
 * blah
 
-```
+```vala
 int main(string[] args) {
 	blah();
 }
