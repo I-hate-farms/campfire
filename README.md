@@ -7,7 +7,8 @@ If you want to contribute content, you can add/edit [jade](http://jade-lang.com/
 The folder `layout/` defines the site overall structure
 
 # How to build
-Make sure that you have [npm]() installed.
+Make sure that you have [npm](https://www.npmjs.com/) installed. 
+If you are using ubuntu, you might want to use [that tutorial](https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource)
 
 Then run 
 ```
