@@ -9,3 +9,10 @@ Blah blah
 
 * blub
 * blah
+
+```
+int main(string[] args) {
+	blah();
+}
+```
+

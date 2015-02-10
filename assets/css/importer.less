@@ -16,9 +16,13 @@ body {
 	color: @primaryTextColor;
 }
 
-.header {
+.header-collapsed, .header {
 	background-color: @primaryColor;
-	color: #fff;
+
+	a, a:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 
 	width: 100%;
 	margin-bottom: 24px;
@@ -27,6 +31,11 @@ body {
 		margin: 0;
 		padding: 0.7em 0;
 		font-weight: 900;
+		font-size: 32px;
+	}
+}
+.header {
+	h1 {
 		font-size: 108px;
 	}
 }
@@ -40,5 +49,7 @@ a {
 }
 
 .footer {
-	margin-top: 12px;
+	border-top: 1px solid @dividerColor;
+	padding-top: 12px;
+	margin-top: 32px;
 }

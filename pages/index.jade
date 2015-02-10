@@ -1,25 +1,14 @@
 extends ../layout/layout.jade
 
-block content
+block header
 	.header
 		.container
-			h1 Vala
-	.container
-		.row
-			.col-md-2
-				ul.nav
-					li Getting Started
-						ul
-							li: a(href="#") Tutorials
-							li: a(href="#") Sample Apps
-					li Documentation
-						ul
-							li: a(href="#") API
-							li: a(href="#") Language Specs
-			.col-md-10
-				p.
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-					tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-					vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-					no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			a(href="/"): h1 Vala
+
+block content
+	p.
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+		tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+		vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+		no sea takimata sanctus est Lorem ipsum dolor sit amet.
 

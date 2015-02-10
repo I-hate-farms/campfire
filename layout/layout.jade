@@ -8,8 +8,27 @@ html
 			link(href="/css/style.css", rel="stylesheet")
 
 	body
-		block content
+		block header
+			.header-collapsed
+				.container
+					a(href="/"): h1 Vala
+		block body
+			.container
+				.row
+					.col-md-2
+						ul.nav
+							li Getting Started
+								ul
+									li: a(href="/tutorials.html") Tutorials
+									li: a(href="#") Sample Apps
+									li: a(href="#") Build Systems
+							li Documentation
+								ul
+									li: a(href="#") API
+									li: a(href="#") Language Specs
+					.col-md-10
+						block content
 		block footer
-			.container.footer
+			.container.footer.
 				Vala - &copy; I-hate-farms
 

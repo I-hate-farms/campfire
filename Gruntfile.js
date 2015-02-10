@@ -1,4 +1,5 @@
 
+var tutorialsData = {};
 var tutorialsList = {};
 
 module.exports = function(grunt) {
@@ -12,7 +13,7 @@ module.exports = function(grunt) {
       tutorials: {
         options: {
           data: function(dest, src) {
-            return tutorialsList[src[0]];
+            return tutorialsData[src[0]];
           }
         },
         files: [
@@ -20,6 +21,14 @@ module.exports = function(grunt) {
         ]
       },
       pages: {
+        options: {
+          data: function(dest, src) {
+            if (dest.match(/tutorials\.html$/))
+              return {
+                topics: tutorialsList
+              };
+          }
+        },
         files: [
           { cwd: 'pages', src: ['*.jade'], dest: 'build', expand: true, ext: '.html' }
         ]
@@ -68,7 +77,9 @@ module.exports = function(grunt) {
       },
       pages: {
         files: ['pages/*.jade'],
-        tasks: ['jade:pages']
+        // we need the tutorial list to generate pages, so
+        // we have to run that task as well
+        tasks: ['assembleTutorials', 'jade:pages']
       },
       layout: {
         files: ['layout/*.jade'],
@@ -96,6 +107,12 @@ module.exports = function(grunt) {
     var marked = require('marked');
     var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
 
+    function getBaseName(path) {
+      var parts = path.split('/');
+      parts = parts[parts.length - 1].split('.');
+      return parts[0];
+    }
+
     this.files.forEach(function(file) {
       var data = grunt.file.read(file.src[0]).split('}\n\n');
       var header;
@@ -107,9 +124,16 @@ module.exports = function(grunt) {
                                '`, skipping (' + e.message + ')');
       }
 
-      tutorialsList[file.dest] = header;
+      var section = header.section || 'Other';
+      header.url = '/tutorials/' + getBaseName(file.dest) + '.html';
 
-      grunt.file.write(file.dest, template.replace('{{tutorial}}', marked(data[1])));
+      tutorialsData[file.dest] = header;
+      if (!tutorialsList[section])
+        tutorialsList[section] = [];
+
+      tutorialsList[section].push(header);
+
+      grunt.file.write(file.dest, template.replace('{{tutorial}}', marked(data[1]).replace(/\n/g, '')));
     });
   });
 

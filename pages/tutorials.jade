@@ -1,0 +1,11 @@
+extends ../layout/layout.jade
+
+block content
+	.container
+		each topic, tutorials in topics
+			ul
+				li= tutorials
+					ul
+						each tutorial in topic
+							li: a(href="#{tutorial.url}")= tutorial.title
+
