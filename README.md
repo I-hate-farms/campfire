@@ -1,8 +1,12 @@
 # Campfire
-Cozy place to learn about Vala
+Cozy place to learn about Vala.
+
+You can view the site [in action here](http://dev.tombeckmann.de/)
 
 # How to contribute
-If you want to contribute content, you can add/edit [jade](http://jade-lang.com/) pages in `pages/`
+If you want to contribute content: 
+   - you can add/edit general purpose pages with [Jade](http://jade-lang.com/)  in `pages/`
+   - you can add/edit tutorials with [Github flavored Markdown](https://help.github.com/articles/github-flavored-markdown/) in `tutorial/`
 
 The folder `layout/` defines the site overall structure
 
