@@ -29,3 +29,8 @@ http://themes.3rdwavemedia.com/demo/devaid/
 http://bootstraptaste.com/theme/amoeba/
 http://ironsummitmedia.github.io/startbootstrap-freelancer/
 http://scripteden.com/previews/expose/
+
+## Jade and markdown hint
+- try #[a(href="blah.html") my link]
+- you could always just use :markdown instead 
+of p and then type markdown for that paragraph 

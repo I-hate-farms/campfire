@@ -79,6 +79,17 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      images: {
+        files: [
+          { expand: true, 
+            cwd: 'assets/images', 
+            src: ['**'], 
+            dest: 'build/images/'},
+        ],
+      },
+    },
+    
     bower: {
       install: {
         options: {
@@ -91,6 +102,10 @@ module.exports = function(grunt) {
       less: {
         files: ['assets/css/*.less'],
         tasks: ['less']
+      },
+      copy: {
+        files: ['assets/images/*.*'],
+        tasks: ['copy']
       },
       tutorials: {
         files: ['tutorials/*.md'],
@@ -176,8 +191,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-bower-task');
-
-  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less']);
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  
+  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy']);
   grunt.registerTask('dev', ['build', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['build', 'connect:server']);
 
