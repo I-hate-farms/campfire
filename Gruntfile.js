@@ -122,11 +122,19 @@ module.exports = function(grunt) {
     }
 
     var marked = require('marked');
+    marked.setOptions({
+      highlight: function (code, lang, cb) {
+        console.log(code, lang, cb);
+        return require('highlight.js').highlightAuto(code).value;
+      }
+    });
+
     var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
     var templateIndent = getIndentAt(template, '{{tutorial}}');
 
     this.files.forEach(function(file) {
       var data = grunt.file.read(file.src[0]).split('}\n\n');
+      var content = data.slice(1).join('}\n\n');
       var header;
 
       try {
@@ -145,7 +153,7 @@ module.exports = function(grunt) {
 
       tutorialsList[section].push(header);
 
-      var out = template.replace('{{tutorial}}', marked(data[1]).replace(/\n/g, '\n' + templateIndent));
+      var out = template.replace('{{tutorial}}', marked(content).replace(/\n/g, '\n' + templateIndent));
       grunt.file.write(file.dest, out);
     });
   });
