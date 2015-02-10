@@ -1,0 +1,18 @@
+extends layout.jade
+
+block content
+	.container
+		.row
+			.col-md-2
+				ul.nav
+					li Getting Started
+						ul
+							li: a(href="/tutorials.html") Tutorials
+							li: a(href="/todo.html") Sample Apps
+							li: a(href="/todo.html") Build Systems
+					li Documentation
+						ul
+							li: a(href="/todo.html") API
+							li: a(href="/todo.html") Language Specs
+			.col-md-10
+				block learning_content
