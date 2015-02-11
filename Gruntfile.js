@@ -75,7 +75,7 @@ module.exports = function(grunt) {
     less: {
       compile: {
         files: [
-          { src: 'assets/css/*.less', dest: 'build/css/style.css' }
+          { src: 'assets/style/*.less', dest: 'build/style/style.css' }
         ]
       }
     },
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
     watch: {
       less: {
-        files: ['assets/css/*.less'],
+        files: ['assets/style/*.less'],
         tasks: ['less']
       },
       copy: {
