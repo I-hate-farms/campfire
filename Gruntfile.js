@@ -25,7 +25,8 @@ module.exports = function(grunt) {
         options: {
           data: function(dest, src) {
             return tutorialsData[src[0]];
-          }
+          },
+          pretty: true
         },
         files: [
           { cwd: '.tmp', src: ['*.jade'], dest: 'build/tutorials', expand: true, ext: '.html' }
@@ -33,6 +34,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
+          pretty: true,
           filters: {
             highlight: function(str) {
               var hl = highlight.highlightAuto(str).value;
@@ -51,7 +53,7 @@ module.exports = function(grunt) {
           }
         },
         files: [
-          { cwd: 'pages', src: ['*.jade'], dest: 'build', expand: true, ext: '.html' }
+          { cwd: 'pages', src: ['**/*.jade'], dest: 'build', expand: true, ext: '.html' }
         ]
       }
     },
@@ -112,7 +114,7 @@ module.exports = function(grunt) {
         tasks: ['assembleTutorials', 'jade:tutorials']
       },
       pages: {
-        files: ['pages/*.jade'],
+        files: ['pages/**/*.jade'],
         // we need the tutorial list to generate pages, so
         // we have to run that task as well
         tasks: ['assembleTutorials', 'jade:pages']

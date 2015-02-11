@@ -149,7 +149,7 @@ void main (string[] args)
     awfully_long_operation.begin ((obj, res) => {
         awfully_long_operation.end (res);
 
-        print ("We're donen");
+        print ("We're done");
     });
 
     print ("Continuing.n");

@@ -1,0 +1,52 @@
+extends ../layout/layout.jade
+
+block content
+
+	h1 
+		| H1 title 
+		small  Secondary text
+
+	h2 
+		| H2 title
+		small  Secondary text
+
+	h3 
+		| H3 title
+		small  Secondary text
+
+	h4 
+		| H4 title
+		small  Secondary text
+	
+	p Simple text in a new paragraph
+
+	strong strong text 
+	br
+	em em text 
+	br
+	small small text 
+
+	p: address
+		strong Twitter, Inc.
+		br
+		|   795 Folsom Ave, Suite 600
+		br
+		|   San Francisco, CA 94107
+		br
+		|   
+		abbr(title='Phone') P:
+		|  (123) 456-7890
+
+	p: blockquote
+		p
+			| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+			footer
+			| Someone famous in 
+			cite(title='Source Title') Source Title
+
+	span.label.label-default Default
+	span.label.label-primary Primary
+	span.label.label-success Success
+	span.label.label-info Info
+	span.label.label-warning Warning
+	span.label.label-danger Danger
