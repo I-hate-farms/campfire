@@ -1,7 +1,7 @@
 # Campfire
 Cozy place to learn about Vala.
 
-You can view the site [in action here](http://dev.tombeckmann.de/).
+You can view the site [in action here](http://i-hate-farms.github.io/campfire).
 
 # How to contribute
 If you want to contribute content: 
