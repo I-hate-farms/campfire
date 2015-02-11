@@ -25,10 +25,14 @@ Very hipster.
 But not bad. 
 
 ### More 
+[Freelancer][1] with [source][2] proposed by [Start Bootstrap][3] 
 http://themes.3rdwavemedia.com/demo/devaid/
 http://bootstraptaste.com/theme/amoeba/
-http://ironsummitmedia.github.io/startbootstrap-freelancer/
 http://scripteden.com/previews/expose/
+
+[1]: http://ironsummitmedia.github.io/startbootstrap-freelancer/
+[2]: https://github.com/IronSummitMedia/startbootstrap-freelancer
+[3]: http://startbootstrap.com/template-overviews/freelancer/
 
 ## Jade and markdown hint
 - try #[a(href="blah.html") my link]
