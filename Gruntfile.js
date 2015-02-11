@@ -12,7 +12,6 @@ marked.setOptions({
 
 var tutorialsData = {};
 var tutorialsList = {};
-
 module.exports = function(grunt) {
 
   // Project configuration.
