@@ -3,16 +3,21 @@ extends layout.jade
 block content
 	.container
 		.row
-			.col-md-2
+			.col-md-4
 				ul.nav
 					li Getting Started
 						ul
+							li: a(href="/learning_todo.html") Getting started
+							li: a(href="/learning_todo.html") Language reference
 							li: a(href="/tutorials.html") Tutorials
-							li: a(href="/todo.html") Sample Apps
-							li: a(href="/todo.html") Build Systems
+							li: a(href="/learning_todo.html") Debugging
+							li: a(href="/learning_todo.html") Building your application
+							li: a(href="/learning_todo.html") Vala and your IDE/editors
+							li: a(href="/learning_todo.html") Articles
+
 					li Documentation
 						ul
-							li: a(href="/todo.html") API
-							li: a(href="/todo.html") Language Specs
-			.col-md-10
+							li: a(href="/learning_todo.html") Built-in bindings
+							li: a(href="/learning_todo.html") More bindings
+			.col-md-8
 				block learning_content
