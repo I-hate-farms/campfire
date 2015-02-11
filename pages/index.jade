@@ -21,6 +21,13 @@ block content
 								i++;
 							}
 						}
+						var folder = File.new_for_path (folder);
+						try {
+							yield folder.query_info_async ("";
+						} catch (IOError.NOT_FOUND e) {
+							warning ("Folder does exist, not creating file.");
+							return false;
+						}
 
 	section#portfolio
 		.container
@@ -32,7 +39,7 @@ block content
 				.col-sm-4.feature
 					p
 						.icon: i.fa.fa-5x.fa-camera-retro
-						h4 Fast and native
+						h4: a(href='todo.html') Fast and native
 						p.
 							For performance reasons, all icons require a base class and individual icon class. 
 							To use, place the following code just about anywhere. Be sure to leave a space 
@@ -41,7 +48,7 @@ block content
 				.col-sm-4.feature
 					p
 						.icon: i.fa.fa-5x.fa-shield
-						h4 Strongly typed
+						h4: a(href='todo.html') Strongly typed
 						p.
 							For performance reasons, all icons require a base class and individual icon class. 
 							To use, place the following code just about anywhere. Be sure to leave a space 
@@ -49,7 +56,7 @@ block content
 				.col-sm-4.feature
 					p
 						.icon: i.fa.fa-5x.fa-book
-						h4 Object oriented
+						h4: a(href='todo.html') Object oriented
 						p.
 							For performance reasons, all icons require a base class and individual icon class. 
 							To use, place the following code just about anywhere. Be sure to leave a space 
@@ -57,13 +64,14 @@ block content
 				.col-sm-4.feature
 					p
 						.icon: i.fa.fa-5x.fa-flag
-						h4 Managed memory
+						h4: a(href='todo.html') Managed memory
 						p.
 							For performance reasons, all icons require a base class and individual icon class. 
 							To use, place the following code just about anywhere. Be sure to leave a space 
 							between the icon and text for proper padding.							
 
-
+	// App gallery
+	// And now
 	section#portfolio
 		.container
 			.row
@@ -88,7 +96,7 @@ block content
 		.container
 			.row
 				.col-lg-12.text-center
-					h2 About
+					h2 What now?
 					hr.star-light
 			.row
 				.col-lg-4.col-lg-offset-2
