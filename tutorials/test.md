@@ -4,7 +4,7 @@
 }
 
 # Das ist ein Test Tutorial.
-BLING
+
 Blah blah
 
 * blub
