@@ -1,8 +1,0 @@
-_site
-.sass-cache
-build
-.tmp
-bower_components
-node_modules
-*.sublime-*
-*.log
