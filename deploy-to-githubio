@@ -22,4 +22,4 @@ cd ..
 git add .
 git commit -am "Pushing to github.io" 
 
-# git push 
+git push 
