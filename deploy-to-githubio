@@ -15,7 +15,7 @@ grunt github
 
 # Copy generated files 
 cd build 
-cp -r *.* ../${GHPAGES_FOLDER}
+cp -r * ../${GHPAGES_FOLDER}
 cd .. 
 
 # Push to github
