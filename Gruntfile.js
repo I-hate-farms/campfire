@@ -194,9 +194,9 @@ module.exports = function(grunt) {
     /* Renders the markdown files using the jade template 
     /* Header section: 
      *   {
-     *      "author": "Tom Beckmann",
-     *      "title": "Async and Threading"
-     *      "section" : "System"             [optional]: default="Other"
+     *      "author"  : "Tom Beckmann",
+     *      "title"   : "Async and Threading"
+     *      "section" : "System"                   [optional]: default="Other"
      *    }
      */
     this.files.forEach(function(file) {
