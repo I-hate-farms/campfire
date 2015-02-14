@@ -243,7 +243,7 @@ module.exports = function(grunt) {
 
   });*/
 
-  grunt.registerTask('change-site-root', 'Change site root to campfire', function() {
+  grunt.registerTask('changeSiteRoot', 'Change site root to campfire', function() {
     globalSiteRoot = "campfire" ;
   });
 
