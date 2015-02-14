@@ -1,12 +1,12 @@
 include mixins
 
 doctype html
-// - var site_root = "/campfire" ;
-- var siteRoot = "" ;
+
 html
 	head
 		title Vala
-		base( href='#{siteRoot}')
+		// The siteRoot is defined by grunt
+		base(href='#{siteRoot}')
 		block styles
 			link(href="/vendor/bootstrap/bootstrap.css", rel="stylesheet")
 			link(href="/style/style.css", rel="stylesheet")

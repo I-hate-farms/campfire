@@ -1,0 +1,23 @@
+#! /bin/bash
+
+GHPAGES_FOLDER=../campfire.gh-pages
+
+# Clean folder
+mv ${GHPAGES_FOLDER}/.git /tmp 
+rm -rf ${GHPAGES_FOLDER}
+mkdir ${GHPAGES_FOLDER}
+mv /tmp/.git ${GHPAGES_FOLDER}
+
+# Generate the site with github.io configuration
+grunt github 
+
+# Copy generated files 
+cd build 
+cp -R *.* ../${GHPAGES_FOLDER}
+cd .. 
+
+# Push to github
+git add .
+git commit -am "Pushing to github.io" 
+
+git push 

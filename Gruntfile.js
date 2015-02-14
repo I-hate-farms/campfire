@@ -12,8 +12,10 @@ marked.setOptions({
 
 var tutorialsData = {};
 var tutorialsList = {};
-module.exports = function(grunt) {
+var globalSiteRoot = "" ;
 
+module.exports = function(grunt) {
+  
   // Project configuration.
   grunt.initConfig({
 
@@ -25,7 +27,8 @@ module.exports = function(grunt) {
           data: function(dest, src) {
             return tutorialsData[src[0]];
           },
-          pretty: true
+          pretty: true,
+          siteRoot: globalSiteRoot
         },
         files: [
           { cwd: '.tmp', src: ['*.jade'], dest: 'build/tutorials', expand: true, ext: '.html' }
@@ -47,8 +50,13 @@ module.exports = function(grunt) {
           data: function(dest, src) {
             if (dest.match(/tutorials\.html$/))
               return {
-                topics: tutorialsList
+                topics: tutorialsList,
+                siteRoot: globalSiteRoot
               };
+            else
+              return {
+                  siteRoot: globalSiteRoot
+                }; 
           }
         },
         files: [
@@ -88,8 +96,29 @@ module.exports = function(grunt) {
             src: ['**'], 
             dest: 'build/images/'},
         ],
-      },
+      }
+      /*toGithub: {
+        files: [
+          { expand: true, 
+            cwd: './build', 
+            src: ['**'], 
+            dest: '../campfire.gh-pages'},
+        ],
+      }*/
     },
+
+  /*exec: {
+    gitCommit: {
+      command: 'cd ../campfire.gh-pages && git commit -am "Deploying to github.io" && cd -',
+      stdout: false,
+      stderr: false
+    },
+    gitPush: {
+      command: 'cd ../campfire.gh-pages && git push && cd -',
+      stdout: false,
+      stderr: false
+    }
+  },*/ 
     
     bower: {
       install: {
@@ -159,8 +188,17 @@ module.exports = function(grunt) {
     }
 
     var template = grunt.file.read(__dirname + '/layout/tutorial.jade');
+    // {{tutorial}} is the placeholder for the content
     var templateIndent = getIndentAt(template, '{{tutorial}}');
 
+    /* Renders the markdown files using the jade template 
+    /* Header section: 
+     *   {
+     *      "author": "Tom Beckmann",
+     *      "title": "Async and Threading"
+     *      "section" : "System"             [optional]: default="Other"
+     *    }
+     */
     this.files.forEach(function(file) {
       var data = grunt.file.read(file.src[0]).split('}\n\n');
       var content = data.slice(1).join('}\n\n');
@@ -182,9 +220,31 @@ module.exports = function(grunt) {
 
       tutorialsList[section].push(header);
 
+      // Replace {{tutorial}} with the content of the article
       var out = template.replace('{{tutorial}}', marked(content).replace(/\n/g, '\n' + templateIndent));
       grunt.file.write(file.dest, out);
     });
+
+  });
+
+
+  // Deploy to github.io
+  /*grunt.registerTask('clean-github', 'Deploy to github.io', function() {
+    var destPath = '../campfire.gh-pages' ;   
+    
+    grunt.log.write ('Replacing '+ destPath + ' with ./build...') ;
+
+    grunt.file.delete(destPath, {force: true} ) ;
+    grunt.tasks(['copy:toGithub'], {}, function() {
+      grunt.log.ok('Copy done!');
+    });
+    
+    grunt.log.write ('Done.') ;
+
+  });*/
+
+  grunt.registerTask('change-site-root', 'Change site root to campfire', function() {
+    globalSiteRoot = "campfire" ;
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -194,9 +254,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-copy');
   
-  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy']);
+  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy:images']);
   grunt.registerTask('dev', ['build', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['build', 'connect:server']);
 
+  grunt.registerTask('github', ['changeSiteRoot', 'build']);
 };
 
