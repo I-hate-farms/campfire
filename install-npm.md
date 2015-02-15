@@ -24,16 +24,22 @@ Installing grunt and bower command line tools **locally**
 	sudo ln -s  ~/.cache/npm/bin/bower /usr/bin/bower
 ```
 
-Now npm, grunt and bower are installed, the dependencies of `campfire` can be installed
-```
+Now that `npm`, `grunt` and `bower` are installed, the dependencies of `campfire` can be installed
+```shell
 	npm install 
+	grunt 
 ```
 
 ## Uninstalling
 
 ```
+	npm uninstall -g bower 
+	npm uninstall -g grunt-cli
+
 	sudo apt-get purge nodejs
+	
 	sudo rm /usr/bin/grunt
 	sudo rm /usr/bin/bower
+	
 	rm -rf ~/.cache/npm
 ```
