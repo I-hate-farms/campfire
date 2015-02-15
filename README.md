@@ -6,8 +6,6 @@ You can view the site [in action here](http://i-hate-farms.github.io/campfire).
 # How to build
 Make sure that you have [npm](https://www.npmjs.com/) installed. If you are using ubuntu, you might want to use [that tutorial](install-npm.md)
 
-Install [bower](https//bower.io) by running `npm install -g bower`
-
 Then run 
 ```
     npm install

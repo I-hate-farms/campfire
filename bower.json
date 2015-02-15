@@ -1,6 +1,5 @@
 {
   "name": "vala",
-  "main": "index.js",
   "version": "0.0.0",
   "authors": [
     "Tom Beckmann <tomjonabc@gmail.com>"
