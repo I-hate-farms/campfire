@@ -13,7 +13,7 @@ Installing node:
 	sudo apt-get install nodejs
 	mkdir ~/.cache/npm
 	npm config set prefix ~/.cache/npm
-	# TODO add export PATH="$PATH:$HOME/npm/bin"
+	export PATH="$PATH:$HOME/npm/bin"
 ```
 
 Installing grunt and bower command line tools **locally**
