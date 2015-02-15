@@ -9,7 +9,7 @@ If you are using ubuntu, you might want to use [that tutorial](https://nodesourc
 
 Then run 
 ```
-    sudo npm install
+    npm install
 	grunt
 ```  
 
@@ -17,9 +17,9 @@ Then run
 
 The site resources (pages, css, etc.) are generated in `build/`.
 
-> Note: when you get newer files with `git pull` you must update your local npm repository by running `sudo npm install` again.
-
 # How to contribute
+
+### Editing pages
 If you want to contribute content: 
    - you can add/edit general purpose pages with [Jade](http://jade-lang.com/)  in  [`pages/`](pages)
    - you can add/edit tutorials with [Github flavored Markdown](https://help.github.com/articles/github-flavored-markdown/) in [`tutorial/`](tutorial)
@@ -27,6 +27,14 @@ If you want to contribute content:
 The folder [`layout/`](layout) defines the site overall structure.
 
 Running `grunt dev` will setup a local web server showing the content (and be updated each time you change a file).
+
+### Managing dependencies
+Adding a dependency: 
+- a compile time [npm dependency]() run ``
+- a runtime [npm dependency]() run ``
+- a [bower dependency]() run ``
+
+Refreshing npm dependencies: run `npm install`
 
 # How to deploy to github.io
 
@@ -36,3 +44,5 @@ Run:
 ```
 	./deploy-to-githubio
 ```
+
+

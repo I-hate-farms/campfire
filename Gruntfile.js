@@ -142,7 +142,7 @@ module.exports = function(grunt) {
         tasks: ['assembleTutorials', 'jade:tutorials']
       },
       pages: {
-        files: ['pages/**/*.jade'],
+        files: ['pages/**/*.jade', 'layout/*.jade'],
         // we need the tutorial list to generate pages, so
         // we have to run that task as well
         tasks: ['assembleTutorials', 'jade:pages']

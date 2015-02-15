@@ -7,7 +7,7 @@ mixin draft(page_name)
 
 mixin link(href)
 	- var startsWithSlash = href.indexOf("/") == 0 ;
-	- var needsReformatting = !(siteRoot === "") && startsWithSlash ;
+	- var needsReformatting = (!(siteRoot === "") && (siteRoot != null)) && startsWithSlash ;
 	if needsReformatting
 		a(href="#{siteRoot}#{href}" class!=attributes.class)
 			block

@@ -24,6 +24,8 @@ The presentation feels like 1999 though.
 Very hipster. 
 But not bad. 
 
+### [Nim](http://nim-lang.org/)
+
 ### More 
 - [Freelancer][1] with [source][2] proposed by [Start Bootstrap][3] 
 - http://themes.3rdwavemedia.com/demo/devaid/
@@ -38,3 +40,7 @@ But not bad.
 - try #[a(href="blah.html") my link]
 - you could always just use :markdown instead 
 of p and then type markdown for that paragraph 
+
+## Working with bootstrap 
+  - http://bootswatch.com/flatly/ 
+  - http://bootsnipp.com/

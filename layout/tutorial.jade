@@ -1,7 +1,12 @@
 extends ../layout/layout.jade
 
 block content
-	small #{author} - #{title}
-	p.
-		{{tutorial}}
-
+	// FIXME hack to get the turorial centered. 
+	// Pick what should be displayed in the right/left margins
+	.container.row  
+		.col-md-2
+		.col-md-8
+			small #{author} - #{title}
+			p.
+				{{tutorial}}
+		.col-md-2

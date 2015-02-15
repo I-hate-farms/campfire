@@ -7,5 +7,5 @@ block learning_content
 				li= tutorials
 					ul
 						each tutorial in topic
-							li: a(href="#{tutorial.url}")= tutorial.title
+							li: +link(tutorial.url)=tutorial.title
 
