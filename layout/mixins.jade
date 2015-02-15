@@ -4,3 +4,13 @@ mixin draft(page_name)
 		p.
 			Please visit #[a(href="https://github.com/I-hate-farms/campfire/blob/master/README.md#how-to-contribute") our guide] 
 			to contribute to this project
+
+mixin link(href)
+	- var startsWithSlash = href.indexOf("/") == 0 ;
+	- var needsReformatting = !(siteRoot === "") && startsWithSlash ;
+	if needsReformatting
+		a(href="#{siteRoot}#{href}" class!=attributes.class)
+			block
+	else
+		a(href="#{href}" class!=attributes.class)
+			block

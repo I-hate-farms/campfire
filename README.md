@@ -26,4 +26,13 @@ If you want to contribute content:
 
 The folder [`layout/`](layout) defines the site overall structure.
 
+Running `grunt dev` will setup a local web server showing the content (and be updated each time you change a file).
+
 # How to deploy to github.io
+
+You need **commit rights** to the `gh-pages` branch.
+
+Run: 
+```
+	./deploy-to-githubio
+```

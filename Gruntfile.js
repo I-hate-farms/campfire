@@ -244,7 +244,7 @@ module.exports = function(grunt) {
   });*/
 
   grunt.registerTask('changeSiteRoot', 'Change site root to campfire', function() {
-    globalSiteRoot = "campfire" ;
+    globalSiteRoot = "/campfire" ;
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');

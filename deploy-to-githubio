@@ -1,16 +1,32 @@
 #! /bin/bash
 
-# git clone git@github.com:I-hate-farms/campfire.git
-
 GHPAGES_FOLDER=../campfire.gh-pages
 
-# Clean folder
+red='\033[0;31m'
+white='\033[1;37m'
+NC='\033[0m' # No Color
+
+HOME=`pwd`
+# If gh pages doesn't exist, clone it from github
+if [ ! -d ${GHPAGES_FOLDER} ] ; then
+	echo -e "  * ${white}Cloning github campfire repository for pages...${NC}"
+    git clone git@github.com:I-hate-farms/campfire.git ${GHPAGES_FOLDER} 
+    cd ${GHPAGES_FOLDER}
+    git checkout gh-pages
+	git config user.email "deploy@campfire.com"
+	git config user.name "Deploy script"
+    cd ${HOME}
+fi
+
+# Delete all the files except from .git folder
 mv ${GHPAGES_FOLDER}/.git /tmp 
 rm -rf ${GHPAGES_FOLDER}
 mkdir ${GHPAGES_FOLDER}
 mv /tmp/.git ${GHPAGES_FOLDER}
 
 # Generate the site with github.io configuration
+echo ""
+echo -e "  * ${white}Generating the site...${NC}"
 grunt github 
 
 # Copy generated files 
@@ -19,7 +35,13 @@ cp -r * ../${GHPAGES_FOLDER}
 cd .. 
 
 # Push to github
-git add .
+echo ""
+echo -e "  * ${white}Committing the changes...${NC}"
+cd ${GHPAGES_FOLDER}
+git add --all *
 git commit -am "Pushing to github.io" 
 
-git push 
+echo ""
+echo -e "  * ${white}Pushing the new files to github pages...${NC}"
+git push origin HEAD
+cd .. 
