@@ -2,7 +2,7 @@ var highlight = require('highlight.js');
 var marked = require('marked');
 
 marked.setOptions({
-  highlight: function (code, lang) {
+  highlight: function(code, lang) {
     if (lang)
       return highlight.highlight(lang, code, true).value;
 
@@ -12,10 +12,10 @@ marked.setOptions({
 
 var tutorialsData = {};
 var tutorialsList = {};
-var globalSiteRoot = "" ;
+var globalSiteRoot = "";
 
 module.exports = function(grunt) {
-  
+
   // Project configuration.
   grunt.initConfig({
 
@@ -30,9 +30,13 @@ module.exports = function(grunt) {
           pretty: true,
           siteRoot: globalSiteRoot
         },
-        files: [
-          { cwd: '.tmp', src: ['*.jade'], dest: 'build/tutorials', expand: true, ext: '.html' }
-        ]
+        files: [{
+          cwd: '.tmp',
+          src: ['*.jade'],
+          dest: 'build/tutorials',
+          expand: true,
+          ext: '.html'
+        }]
       },
       pages: {
         options: {
@@ -55,13 +59,17 @@ module.exports = function(grunt) {
               };
             else
               return {
-                  siteRoot: globalSiteRoot
-                }; 
+                siteRoot: globalSiteRoot
+              };
           }
         },
-        files: [
-          { cwd: 'pages', src: ['**/*.jade'], dest: 'build', expand: true, ext: '.html' }
-        ]
+        files: [{
+          cwd: 'pages',
+          src: ['**/*.jade'],
+          dest: 'build',
+          expand: true,
+          ext: '.html'
+        }]
       }
     },
 
@@ -82,20 +90,21 @@ module.exports = function(grunt) {
 
     less: {
       compile: {
-        files: [
-          { src: 'assets/style/*.less', dest: 'build/style/style.css' }
-        ]
+        files: [{
+          src: 'assets/style/*.less',
+          dest: 'build/style/style.css'
+        }]
       }
     },
 
     copy: {
       images: {
-        files: [
-          { expand: true, 
-            cwd: 'assets/images', 
-            src: ['**'], 
-            dest: 'build/images/'},
-        ],
+        files: [{
+          expand: true,
+          cwd: 'assets/images',
+          src: ['**'],
+          dest: 'build/images/'
+        }, ],
       }
       /*toGithub: {
         files: [
@@ -107,19 +116,19 @@ module.exports = function(grunt) {
       }*/
     },
 
-  /*exec: {
-    gitCommit: {
-      command: 'cd ../campfire.gh-pages && git commit -am "Deploying to github.io" && cd -',
-      stdout: false,
-      stderr: false
-    },
-    gitPush: {
-      command: 'cd ../campfire.gh-pages && git push && cd -',
-      stdout: false,
-      stderr: false
-    }
-  },*/ 
-    
+    /*exec: {
+      gitCommit: {
+        command: 'cd ../campfire.gh-pages && git commit -am "Deploying to github.io" && cd -',
+        stdout: false,
+        stderr: false
+      },
+      gitPush: {
+        command: 'cd ../campfire.gh-pages && git push && cd -',
+        stdout: false,
+        stderr: false
+      }
+    },*/
+
     bower: {
       install: {
         options: {
@@ -208,7 +217,7 @@ module.exports = function(grunt) {
         header = JSON.parse(data[0] + '}');
       } catch (e) {
         return grunt.log.error('Failed to parse header of `' + file.src[0] +
-                               '`, skipping (' + e.message + ')');
+          '`, skipping (' + e.message + ')');
       }
 
       var section = header.section || 'Other';
@@ -244,7 +253,7 @@ module.exports = function(grunt) {
   });*/
 
   grunt.registerTask('changeSiteRoot', 'Change site root to campfire', function() {
-    globalSiteRoot = "/campfire" ;
+    globalSiteRoot = "/campfire";
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -253,11 +262,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  
+
   grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy:images']);
   grunt.registerTask('dev', ['build', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['build', 'connect:server']);
 
   grunt.registerTask('github', ['changeSiteRoot', 'build']);
 };
-

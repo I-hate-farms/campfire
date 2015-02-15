@@ -1,7 +1,8 @@
+
 * 0.3
- - Bootstrap theme is overriden (move from a bower to a npm dependency)
- - add jquery bower dependency
+ - Bootstrap theme is overriden 
  - fix footer
+ - importer.less is not used
 
 * 0.2 
  - add documentation and contents
