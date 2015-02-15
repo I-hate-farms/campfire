@@ -3,44 +3,53 @@
   <head>
     <title>Vala</title>
     <!-- The siteRoot is defined by grunt-->
-    <link href="undefined/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="undefined/style/style.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/style/style.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header page-scroll">
-          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="undefined/index.html" class="navbar-brand">Vala now!  </a>
+          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/index.html" class="navbar-brand">Vala now!  </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="hidden"><a href="#page-top"></a>
             </li>
-            <li class="page-scroll"><a href="undefined/learn/index.html">Learn</a>
+            <li class="page-scroll"><a href="/learn/index.html">Learn</a>
             </li>
-            <li class="page-scroll"><a href="undefined/download.html">Download</a>
+            <li class="page-scroll"><a href="/download.html">Download</a>
             </li>
-            <li class="page-scroll"><a href="undefined/community.html">Community</a>
+            <li class="page-scroll"><a href="/community.html">Community</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container"><small>Tom Beckman - Test Tutorial</small>
-      <p>
-        <h1 id="das-ist-ein-test-tutorial-">Das ist ein Test Tutorial.</h1>
-        <p>Blah blah</p>
-        <ul>
-        <li>blub</li>
-        <li>blah</li>
-        </ul>
-        <pre><code class="lang-vala"><span class="hljs-keyword">int</span> main(<span class="hljs-keyword">string</span>[] args) {
-            blah();
-        }
-        </code></pre>
-      </p>
+    <div class="container">
+      <!-- FIXME hack to get the turorial centered. -->
+      <!-- Pick what should be displayed in the right/left margins-->
+      <div class="container row"> 
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><small>Tom Beckman - Test Tutorial</small>
+          <p>
+            <h1 id="das-ist-ein-test-tutorial-">Das ist ein Test Tutorial.</h1>
+            <p>Blah blah</p>
+            <ul>
+            <li>blub</li>
+            <li>blah</li>
+            </ul>
+            <pre><code class="lang-vala"><span class="hljs-keyword">int</span> main(<span class="hljs-keyword">string</span>[] args) {
+                blah();
+            }
+            </code></pre>
+            
+          </p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
     </div>
     <footer class="text-center">
       <div class="footer-above">

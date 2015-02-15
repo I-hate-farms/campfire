@@ -3,235 +3,244 @@
   <head>
     <title>Vala</title>
     <!-- The siteRoot is defined by grunt-->
-    <link href="undefined/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="undefined/style/style.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/style/style.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header page-scroll">
-          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="undefined/index.html" class="navbar-brand">Vala now!  </a>
+          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/index.html" class="navbar-brand">Vala now!  </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="hidden"><a href="#page-top"></a>
             </li>
-            <li class="page-scroll"><a href="undefined/learn/index.html">Learn</a>
+            <li class="page-scroll"><a href="/learn/index.html">Learn</a>
             </li>
-            <li class="page-scroll"><a href="undefined/download.html">Download</a>
+            <li class="page-scroll"><a href="/download.html">Download</a>
             </li>
-            <li class="page-scroll"><a href="undefined/community.html">Community</a>
+            <li class="page-scroll"><a href="/community.html">Community</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container"><small>Tom Beckmann - Async and Threading</small>
-      <p>
-        <h1 id="async-and-threading">Async and Threading</h1>
-        <p>Executing code asynchronously is an essential requirement for any responsive UI, allowing a long running background task to be run while the user interface stays responsive.</p>
-        <p>Apart from using threads (which may create constraints on your existing codebase), you can use the <code>async</code> keyword.</p>
-        <p>The <code>async</code> keyword executes the background in the same thread, removing the need to care about mutexes, thread synchronization and thread safe implementations.</p>
-        <p><a href="http://to.bedone.com">This tutorial</a> details the async concepts (as opposed to basic threading). If anything, <a href="https://wiki.gnome.org/Projects/Vala/Tutorial#Asynchronous_Methods">the official async tutorial</a> is also available.</p>
-        <p>Vala/GLib has a couple of utilities in this area which we will explore a little in this article.</p>
-        <h2 id="the-async-keyword">The <code>async</code> keyword</h2>
-        <p>First, vala&#39;s <code>async</code> keyword. By itself, prefixing your methods with an &quot;async&quot; won&#39;t do anything at all. It will however tell vala that you intend to make this method execute a long running task, for which it will then give you some utilities.</p>
-        <p>First, you&#39;ll be able to call async methods with a .begin</p>
-        <blockquote>
-        <p>Note : in previous versions of vala (since XXX) you were allow to  leave out the <code>.begin</code>. But this not recommended and deprecated.</p>
-        </blockquote>
-        <p>Take for example this method:</p>
-        <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> do_some_long_tasks () {
-            <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
-            <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">100000</span>) {
-                print (<span class="hljs-string">"I do pretty vala code efficiently.\n"</span>);
-                i++;
+    <div class="container">
+      <!-- FIXME hack to get the turorial centered. -->
+      <!-- Pick what should be displayed in the right/left margins-->
+      <div class="container row"> 
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><small>Tom Beckmann - Async and Threading</small>
+          <p>
+            <h1 id="async-and-threading">Async and Threading</h1>
+            <p>Executing code asynchronously is an essential requirement for any responsive UI, allowing a long running background task to be run while the user interface stays responsive.</p>
+            <p>Apart from using threads (which may create constraints on your existing codebase), you can use the <code>async</code> keyword.</p>
+            <p>The <code>async</code> keyword executes the background in the same thread, removing the need to care about mutexes, thread synchronization and thread safe implementations.</p>
+            <p><a href="http://to.bedone.com">This tutorial</a> details the async concepts (as opposed to basic threading). If anything, <a href="https://wiki.gnome.org/Projects/Vala/Tutorial#Asynchronous_Methods">the official async tutorial</a> is also available.</p>
+            <p>Vala/GLib has a couple of utilities in this area which we will explore a little in this article.</p>
+            <h2 id="the-async-keyword">The <code>async</code> keyword</h2>
+            <p>First, vala&#39;s <code>async</code> keyword. By itself, prefixing your methods with an &quot;async&quot; won&#39;t do anything at all. It will however tell vala that you intend to make this method execute a long running task, for which it will then give you some utilities.</p>
+            <p>First, you&#39;ll be able to call async methods with a .begin</p>
+            <blockquote>
+            <p>Note : in previous versions of vala (since XXX) you were allow to  leave out the <code>.begin</code>. But this not recommended and deprecated.</p>
+            </blockquote>
+            <p>Take for example this method:</p>
+            <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> do_some_long_tasks () {
+                <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">100000</span>) {
+                    print (<span class="hljs-string">"I do pretty vala code efficiently.\n"</span>);
+                    i++;
+                }
             }
-        }
-        </code></pre>
-        <p>It will be called with <code>do_some_long_tasks.begin ();</code> but will block your ui, even though you used <code>async</code>. We will revisit this specific behavior in the part about threads. Now further onto <code>.begin</code>, if we want to pass arguments or return a value from an <code>async</code> method, there are some things to note. Arguments to an <code>async</code> method will be put inside the <code>.begin</code> parentheses and the last argument of each <code>.begin</code> is an optional callback that is called when your <code>async</code> method returns. The callback takes the object on which the <code>async</code> method was called as first argument and a specific result set as as second. You can use this result set to get the return value of the <code>async</code> function by calling the function with <code>.end</code>, just like with <code>.begin</code>. So a more complex function may look like this:</p>
-        <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> give_and_take (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">string</span> b) { ... }
-        
-        give_and_take.begin (<span class="hljs-number">5</span>, <span class="hljs-string">"text!"</span>, (obj, res) =&gt; {
-            <span class="hljs-keyword">int</span> my_return_value = give_and_take.end (res);
-        });
-        </code></pre>
-        <p>The thing utility that vala provides you with within an async method is the <code>yield</code> statement. It allows you to spawn another <code>async</code> method in your existing <code>async</code> method in a way that it will block only that outer <code>async</code> method. This schema can basically completely avoid the famous javascript callback hell, by allowing you to write code that actually depends on callback as seen for <code>begin</code> example in a way that looks completely sequential. Take this function as an example that tests if a given folder exists and only if it does, if will create a file, both asynchronously. (If you&#39;re wondering why we&#39;re not using <code>File.query_exists()</code>, it uses the blocking <code>File.query_info()</code> instead of the non-blocking <code>File.query_info_async()</code> and we don&#39;t want our function to block.)</p>
-        <pre><code class="lang-vala"><span class="hljs-keyword">async</span> <span class="hljs-keyword">bool</span> safe_create_file (<span class="hljs-keyword">string</span> folder, <span class="hljs-keyword">string</span> name, <span class="hljs-keyword">string</span> contents) {
-            <span class="hljs-keyword">var</span> folder = File.new_for_path (folder);
-            <span class="hljs-keyword">try</span> {
-                yield folder.query_info_async (<span class="hljs-string">""</span>, FileQueryInfoFlags.NONE);
-            } <span class="hljs-keyword">catch</span> (IOError.NOT_FOUND e) {
-                warning (<span class="hljs-string">"Folder does exist, not creating file."</span>);
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-            } <span class="hljs-keyword">catch</span> (Error e) {
-                warning (e.message);
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            </code></pre>
+            <p>It will be called with <code>do_some_long_tasks.begin ();</code> but will block your ui, even though you used <code>async</code>. We will revisit this specific behavior in the part about threads. Now further onto <code>.begin</code>, if we want to pass arguments or return a value from an <code>async</code> method, there are some things to note. Arguments to an <code>async</code> method will be put inside the <code>.begin</code> parentheses and the last argument of each <code>.begin</code> is an optional callback that is called when your <code>async</code> method returns. The callback takes the object on which the <code>async</code> method was called as first argument and a specific result set as as second. You can use this result set to get the return value of the <code>async</code> function by calling the function with <code>.end</code>, just like with <code>.begin</code>. So a more complex function may look like this:</p>
+            <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> give_and_take (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">string</span> b) { ... }
+            
+            give_and_take.begin (<span class="hljs-number">5</span>, <span class="hljs-string">"text!"</span>, (obj, res) =&gt; {
+                <span class="hljs-keyword">int</span> my_return_value = give_and_take.end (res);
+            });
+            </code></pre>
+            <p>The thing utility that vala provides you with within an async method is the <code>yield</code> statement. It allows you to spawn another <code>async</code> method in your existing <code>async</code> method in a way that it will block only that outer <code>async</code> method. This schema can basically completely avoid the famous javascript callback hell, by allowing you to write code that actually depends on callback as seen for <code>begin</code> example in a way that looks completely sequential. Take this function as an example that tests if a given folder exists and only if it does, if will create a file, both asynchronously. (If you&#39;re wondering why we&#39;re not using <code>File.query_exists()</code>, it uses the blocking <code>File.query_info()</code> instead of the non-blocking <code>File.query_info_async()</code> and we don&#39;t want our function to block.)</p>
+            <pre><code class="lang-vala"><span class="hljs-keyword">async</span> <span class="hljs-keyword">bool</span> safe_create_file (<span class="hljs-keyword">string</span> folder, <span class="hljs-keyword">string</span> name, <span class="hljs-keyword">string</span> contents) {
+                <span class="hljs-keyword">var</span> folder = File.new_for_path (folder);
+                <span class="hljs-keyword">try</span> {
+                    yield folder.query_info_async (<span class="hljs-string">""</span>, FileQueryInfoFlags.NONE);
+                } <span class="hljs-keyword">catch</span> (IOError.NOT_FOUND e) {
+                    warning (<span class="hljs-string">"Folder does exist, not creating file."</span>);
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                } <span class="hljs-keyword">catch</span> (Error e) {
+                    warning (e.message);
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            
+                <span class="hljs-comment">// if query_info_async didn't fail, we can safely proceed</span>
+                <span class="hljs-keyword">var</span> file = folder.get_child (name);
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-keyword">var</span> file_write_stream = yield file.create_async (FileCreateFlags.NONE);
+                    <span class="hljs-comment">// write_async takes a uint8 array as argument for the data, we can just give it the</span>
+                    <span class="hljs-comment">// data field of our string, which conveniently holds the data of the string as uint8 array</span>
+                    yield file_write_stream.write_async (contents.data);
+                } <span class="hljs-keyword">catch</span> (Error e) {
+                    warning (<span class="hljs-string">"Failed to create and write to file: %s"</span>, e.message);
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            
+                <span class="hljs-comment">// if we reach this point all went fine!</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
             }
-        
-            <span class="hljs-comment">// if query_info_async didn't fail, we can safely proceed</span>
-            <span class="hljs-keyword">var</span> file = folder.get_child (name);
-            <span class="hljs-keyword">try</span> {
-                <span class="hljs-keyword">var</span> file_write_stream = yield file.create_async (FileCreateFlags.NONE);
-                <span class="hljs-comment">// write_async takes a uint8 array as argument for the data, we can just give it the</span>
-                <span class="hljs-comment">// data field of our string, which conveniently holds the data of the string as uint8 array</span>
-                yield file_write_stream.write_async (contents.data);
-            } <span class="hljs-keyword">catch</span> (Error e) {
-                warning (<span class="hljs-string">"Failed to create and write to file: %s"</span>, e.message);
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-            }
-        
-            <span class="hljs-comment">// if we reach this point all went fine!</span>
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-        }
-        </code></pre>
-        <p>As you can see, thanks to the yield statement, we were able to put a lot of asynchronous functions in sequence, instead of either firing them all of at once, which obviously would have failed miserably, since we can&#39;t write to a file that doesn&#39;t exist just yet or having that giant horizontal indentation tree that you probably would have gotten in a javascript implementation (without promises), which may have looked like this, in pseudo code</p>
-        <pre><code class="lang-vala"><span class="hljs-comment">// not actual code !!!</span>
-        query_exists_async.begin ((obj, res) =&gt; {
-            <span class="hljs-keyword">var</span> does_exist = query_exists_async.end (res);
-            if (!does_exist)
-                <span class="hljs-keyword">return</span>;
-            create_file_async.begin ((obj, res) =&gt; {
-                <span class="hljs-keyword">var</span> file_write_stream = create_file.end (res);
-                file_write_stream.write_async (my_data, (obj, res) =&gt; {
-                     if (file_write_stream.write_async.end (res))
-                         print (<span class="hljs-string">"Hooray, we wrote our data!"</span>);
-                     <span class="hljs-keyword">else</span>
-                         warning (<span class="hljs-string">"Write failed :'("</span>);
+            </code></pre>
+            <p>As you can see, thanks to the yield statement, we were able to put a lot of asynchronous functions in sequence, instead of either firing them all of at once, which obviously would have failed miserably, since we can&#39;t write to a file that doesn&#39;t exist just yet or having that giant horizontal indentation tree that you probably would have gotten in a javascript implementation (without promises), which may have looked like this, in pseudo code</p>
+            <pre><code class="lang-vala"><span class="hljs-comment">// not actual code !!!</span>
+            query_exists_async.begin ((obj, res) =&gt; {
+                <span class="hljs-keyword">var</span> does_exist = query_exists_async.end (res);
+                if (!does_exist)
+                    <span class="hljs-keyword">return</span>;
+                create_file_async.begin ((obj, res) =&gt; {
+                    <span class="hljs-keyword">var</span> file_write_stream = create_file.end (res);
+                    file_write_stream.write_async (my_data, (obj, res) =&gt; {
+                         if (file_write_stream.write_async.end (res))
+                             print (<span class="hljs-string">"Hooray, we wrote our data!"</span>);
+                         <span class="hljs-keyword">else</span>
+                             warning (<span class="hljs-string">"Write failed :'("</span>);
+                    });
                 });
             });
-        });
-        </code></pre>
-        <p>The fact that this function is shorter that the other one is really only due to the fact that this is simple pseudo code.</p>
-        <p>The last thing that is special for <code>async</code> methods, is the <code>callback</code> method that is provided within an <code>async</code> method. It allows implementing your own actual asynchronous methods, take this one as a non-real-world example:</p>
-        <pre><code class="lang-vala"><span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> my_async_method () {
-            <span class="hljs-comment">// we just wait for 2 seconds, because why not.</span>
-            Timeout.add (<span class="hljs-number">2000</span>, () =&gt; {
-                <span class="hljs-comment">// read next comment first, then this one!</span>
-                <span class="hljs-comment">//</span>
-                <span class="hljs-comment">// similarly to .begin and .end, we call .callback on the our method name,</span>
-                <span class="hljs-comment">// which tells the first blank yield statement in this method that we're done</span>
-                <span class="hljs-comment">// now and like to continue after it. So in this case, after 2 seconds of waiting</span>
-                <span class="hljs-comment">// we'd jump down right to the print statement and just continue from that point.</span>
-                my_async_method.callback ();
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-            });
-        
-            <span class="hljs-comment">// a yield without any further function calls tells vala to just wait in this</span>
-            <span class="hljs-comment">// async method, important is that it is non-blocking waiting. So this async method</span>
-            <span class="hljs-comment">// does nothing until the 2s timeout is finally done, the comment to which you may</span>
-            <span class="hljs-comment">// read now.</span>
-            yield;
-        
-            print (<span class="hljs-string">"We're done!"</span>);
-        }
-        </code></pre>
-        <h2 id="handling-errors">Handling errors</h2>
-        <p>If an <code>async</code> method throws an error, you have to <code>catch</code> it at the <code>.end</code> statement, wrapping the try-catch-block around the <code>.begin</code> will have no effect.
-        // TODO !! also mention Cancellables</p>
-        <h2 id="actual-threads">Actual Threads</h2>
-        <p>Looking back at the very first example, we were going to do a very long running task, so we put it in an <code>async</code>, hoping that it wouldn&#39;t block our ui then. <code>async</code> does not actually mean in a different thread and thus non-blocking in vala though, you can only assume that the <code>async</code> method is implemented in a non-blocking way. <code>async</code> really only means that you get the opportunity to sequence multiple asynchronous operations via <code>yield</code> and receive the return value of a function later via the <code>.begin</code> and <code>.end</code> calls.
-        Take this program for another example:</p>
-        <pre><code class="lang-vala"><span class="hljs-comment">// compile with valac --pkg gio-2.0 file.vala</span>
-        
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
-        {
-            <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
-            <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">1000000000</span>)
-                i++;
-        }
-        
-        <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
-        {
-            awfully_long_operation.begin ((obj, res) =&gt; {
-                awfully_long_operation.end (res);
-        
-                print (<span class="hljs-string">"We're done"</span>);
-            });
-        
-            print (<span class="hljs-string">"Continuing.n"</span>);
-        }
-        </code></pre>
-        <p>If you run it, you&#39;ll notice that it takes quite some time until the &quot;Continuing&quot; is printed. As just discussed, async methods will not turn code magically into tasks that run in parallel. Threads, however, will:</p>
-        <pre><code class="lang-vala"><span class="hljs-comment">// compile with valac --pkg gio-2.0 --target-glib 2.32 file.vala</span>
-        <span class="hljs-comment">// the target-glib part is important, otherwise you'll need to use a different</span>
-        <span class="hljs-comment">// way of creating threads, which we will not cover here since it's deprecated.</span>
-        
-        <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
-        {
-            <span class="hljs-comment">// we create a new threads. The generic void*, which is just a simple pointer</span>
-            <span class="hljs-comment">// is the return value of the thread, which we will not use. A return value of</span>
-            <span class="hljs-comment">// a thread can be obtained by calling join() on the thread object, which causes</span>
-            <span class="hljs-comment">// your loop to wait until the thread finishes. This is for example useful when</span>
-            <span class="hljs-comment">// writing a game, where physics are in separate thread. If the rendering in the</span>
-            <span class="hljs-comment">// mainloop finishes before the physics, you can't proceed yet, but have to wait</span>
-            <span class="hljs-comment">// until physics are ready as well. We'll just return null here, since we don't care</span>
-            <span class="hljs-comment">// about the return value.</span>
-            <span class="hljs-keyword">new</span> Thread&lt;<span class="hljs-keyword">void</span>*&gt; (<span class="hljs-literal">null</span>, () =&gt; {
+            </code></pre>
+            <p>The fact that this function is shorter that the other one is really only due to the fact that this is simple pseudo code.</p>
+            <p>The last thing that is special for <code>async</code> methods, is the <code>callback</code> method that is provided within an <code>async</code> method. It allows implementing your own actual asynchronous methods, take this one as a non-real-world example:</p>
+            <pre><code class="lang-vala"><span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> my_async_method () {
+                <span class="hljs-comment">// we just wait for 2 seconds, because why not.</span>
+                Timeout.add (<span class="hljs-number">2000</span>, () =&gt; {
+                    <span class="hljs-comment">// read next comment first, then this one!</span>
+                    <span class="hljs-comment">//</span>
+                    <span class="hljs-comment">// similarly to .begin and .end, we call .callback on the our method name,</span>
+                    <span class="hljs-comment">// which tells the first blank yield statement in this method that we're done</span>
+                    <span class="hljs-comment">// now and like to continue after it. So in this case, after 2 seconds of waiting</span>
+                    <span class="hljs-comment">// we'd jump down right to the print statement and just continue from that point.</span>
+                    my_async_method.callback ();
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                });
+            
+                <span class="hljs-comment">// a yield without any further function calls tells vala to just wait in this</span>
+                <span class="hljs-comment">// async method, important is that it is non-blocking waiting. So this async method</span>
+                <span class="hljs-comment">// does nothing until the 2s timeout is finally done, the comment to which you may</span>
+                <span class="hljs-comment">// read now.</span>
+                yield;
+            
+                print (<span class="hljs-string">"We're done!"</span>);
+            }
+            </code></pre>
+            <h2 id="handling-errors">Handling errors</h2>
+            <p>If an <code>async</code> method throws an error, you have to <code>catch</code> it at the <code>.end</code> statement, wrapping the try-catch-block around the <code>.begin</code> will have no effect.
+            // TODO !! also mention Cancellables</p>
+            <h2 id="actual-threads">Actual Threads</h2>
+            <p>Looking back at the very first example, we were going to do a very long running task, so we put it in an <code>async</code>, hoping that it wouldn&#39;t block our ui then. <code>async</code> does not actually mean in a different thread and thus non-blocking in vala though, you can only assume that the <code>async</code> method is implemented in a non-blocking way. <code>async</code> really only means that you get the opportunity to sequence multiple asynchronous operations via <code>yield</code> and receive the return value of a function later via the <code>.begin</code> and <code>.end</code> calls.
+            Take this program for another example:</p>
+            <pre><code class="lang-vala"><span class="hljs-comment">// compile with valac --pkg gio-2.0 file.vala</span>
+            
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
+            {
                 <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
                 <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">1000000000</span>)
                     i++;
-        
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-            });
-        }
-        
-        <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
-        {
-            awfully_long_operation.begin ((obj, res) =&gt; {
-                awfully_long_operation.end (res);
-        
-                print (<span class="hljs-string">"We're donen"</span>);
-            });
-        
-            print (<span class="hljs-string">"Continuing.n"</span>);
-        
-            <span class="hljs-keyword">new</span> MainLoop ().run ();
-        }
-        </code></pre>
-        <p>Now you&#39;ll see both printed, just as the program starts. Which is wrong as well, we were actually expecting &quot;We&#39;re done&quot; to be printed once the calculation is finished and I can assure you that wrapping the code in a thread didn&#39;t magically sped up your computer to finish this calculation faster than before. If your memory is good, you may remember the <code>.callback</code> together with the blank <code>yield</code> we had at the start. It allows us to have our <code>async</code> method wait at its end until the thread is actually finished and only then have the <code>async</code> method run our callback:</p>
-        <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
-        {
-            <span class="hljs-keyword">new</span> Thread&lt;<span class="hljs-keyword">void</span>*&gt; (<span class="hljs-literal">null</span>, () =&gt; {
-                <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
-                <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">100000000</span>)
-                    i++;
-        
-                <span class="hljs-comment">// here we call the callback. However we don't do it directly. If you want to</span>
-                <span class="hljs-comment">// continue your async method from a thread, glib requires you to schedule the</span>
-                <span class="hljs-comment">// callback with an idle, it will throw warnings otherwise. We will see the need</span>
-                <span class="hljs-comment">// for idles within threads further at the bottom in the part about notifications again.</span>
-                Idle.add (awfully_long_operation.callback);
-        
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-            });
-        
-            <span class="hljs-comment">// we call a blank yield as above, so we just sit and wait here now.</span>
-            yield;
-        }
-        
-        <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
-        {
-            awfully_long_operation.begin ((obj, res) =&gt; {
-                awfully_long_operation.end (res);
-        
-                print (<span class="hljs-string">"We're donen"</span>);
-            });
-        
-            print (<span class="hljs-string">"Continuing.n"</span>);
-        
-            <span class="hljs-keyword">new</span> MainLoop ().run ();
-        }
-        </code></pre>
-        <p>Now everything works as we expect it to. &quot;Continuing&quot; is printed as soon as the program starts and after some delay, when our calculations are finished, the &quot;We&#39;re done&quot; follows.</p>
-        <h2 id="notifications">Notifications</h2>
-        <p>Calling any Gtk function from a thread other than the main one will result to &quot;undefined behavior&quot; according to the Gtk docs. You typically won&#39;t want to find out what precisely this may mean in your case, but rather use proper ways of communicating to the ui from within your thread, which is a task that you may have to do quite often, in order to provide feedback to the user about progress of the asynchronous operation.</p>
-        <p>// TODO samples, more text.</p>
-        <h2 id="reference">Reference</h2>
-        <p>&nbsp;</p>
-      </p>
+            }
+            
+            <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
+            {
+                awfully_long_operation.begin ((obj, res) =&gt; {
+                    awfully_long_operation.end (res);
+            
+                    print (<span class="hljs-string">"We're done"</span>);
+                });
+            
+                print (<span class="hljs-string">"Continuing.n"</span>);
+            }
+            </code></pre>
+            <p>If you run it, you&#39;ll notice that it takes quite some time until the &quot;Continuing&quot; is printed. As just discussed, async methods will not turn code magically into tasks that run in parallel. Threads, however, will:</p>
+            <pre><code class="lang-vala"><span class="hljs-comment">// compile with valac --pkg gio-2.0 --target-glib 2.32 file.vala</span>
+            <span class="hljs-comment">// the target-glib part is important, otherwise you'll need to use a different</span>
+            <span class="hljs-comment">// way of creating threads, which we will not cover here since it's deprecated.</span>
+            
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
+            {
+                <span class="hljs-comment">// we create a new threads. The generic void*, which is just a simple pointer</span>
+                <span class="hljs-comment">// is the return value of the thread, which we will not use. A return value of</span>
+                <span class="hljs-comment">// a thread can be obtained by calling join() on the thread object, which causes</span>
+                <span class="hljs-comment">// your loop to wait until the thread finishes. This is for example useful when</span>
+                <span class="hljs-comment">// writing a game, where physics are in separate thread. If the rendering in the</span>
+                <span class="hljs-comment">// mainloop finishes before the physics, you can't proceed yet, but have to wait</span>
+                <span class="hljs-comment">// until physics are ready as well. We'll just return null here, since we don't care</span>
+                <span class="hljs-comment">// about the return value.</span>
+                <span class="hljs-keyword">new</span> Thread&lt;<span class="hljs-keyword">void</span>*&gt; (<span class="hljs-literal">null</span>, () =&gt; {
+                    <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+                    <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">1000000000</span>)
+                        i++;
+            
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+                });
+            }
+            
+            <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
+            {
+                awfully_long_operation.begin ((obj, res) =&gt; {
+                    awfully_long_operation.end (res);
+            
+                    print (<span class="hljs-string">"We're donen"</span>);
+                });
+            
+                print (<span class="hljs-string">"Continuing.n"</span>);
+            
+                <span class="hljs-keyword">new</span> MainLoop ().run ();
+            }
+            </code></pre>
+            <p>Now you&#39;ll see both printed, just as the program starts. Which is wrong as well, we were actually expecting &quot;We&#39;re done&quot; to be printed once the calculation is finished and I can assure you that wrapping the code in a thread didn&#39;t magically sped up your computer to finish this calculation faster than before. If your memory is good, you may remember the <code>.callback</code> together with the blank <code>yield</code> we had at the start. It allows us to have our <code>async</code> method wait at its end until the thread is actually finished and only then have the <code>async</code> method run our callback:</p>
+            <pre><code class="lang-vala"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> awfully_long_operation ()
+            {
+                <span class="hljs-keyword">new</span> Thread&lt;<span class="hljs-keyword">void</span>*&gt; (<span class="hljs-literal">null</span>, () =&gt; {
+                    <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+                    <span class="hljs-keyword">while</span> (i &lt; <span class="hljs-number">100000000</span>)
+                        i++;
+            
+                    <span class="hljs-comment">// here we call the callback. However we don't do it directly. If you want to</span>
+                    <span class="hljs-comment">// continue your async method from a thread, glib requires you to schedule the</span>
+                    <span class="hljs-comment">// callback with an idle, it will throw warnings otherwise. We will see the need</span>
+                    <span class="hljs-comment">// for idles within threads further at the bottom in the part about notifications again.</span>
+                    Idle.add (awfully_long_operation.callback);
+            
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+                });
+            
+                <span class="hljs-comment">// we call a blank yield as above, so we just sit and wait here now.</span>
+                yield;
+            }
+            
+            <span class="hljs-keyword">void</span> main (<span class="hljs-keyword">string</span>[] args)
+            {
+                awfully_long_operation.begin ((obj, res) =&gt; {
+                    awfully_long_operation.end (res);
+            
+                    print (<span class="hljs-string">"We're donen"</span>);
+                });
+            
+                print (<span class="hljs-string">"Continuing.n"</span>);
+            
+                <span class="hljs-keyword">new</span> MainLoop ().run ();
+            }
+            </code></pre>
+            <p>Now everything works as we expect it to. &quot;Continuing&quot; is printed as soon as the program starts and after some delay, when our calculations are finished, the &quot;We&#39;re done&quot; follows.</p>
+            <h2 id="notifications">Notifications</h2>
+            <p>Calling any Gtk function from a thread other than the main one will result to &quot;undefined behavior&quot; according to the Gtk docs. You typically won&#39;t want to find out what precisely this may mean in your case, but rather use proper ways of communicating to the ui from within your thread, which is a task that you may have to do quite often, in order to provide feedback to the user about progress of the asynchronous operation.</p>
+            <p>// TODO samples, more text.</p>
+            <h2 id="reference">Reference</h2>
+            <p>&nbsp;</p>
+            
+          </p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
     </div>
     <footer class="text-center">
       <div class="footer-above">
