@@ -4,8 +4,9 @@ Cozy place to learn about Vala.
 You can view the site [in action here](http://i-hate-farms.github.io/campfire).
 
 # How to build
-Make sure that you have [npm](https://www.npmjs.com/) installed. 
-If you are using ubuntu, you might want to use [that tutorial](https://nodesource.com/blog/chris-lea-joins-forces-with-nodesource).
+Make sure that you have [npm](https://www.npmjs.com/) installed. If you are using ubuntu, you might want to use [that tutorial](install-npm.md)
+
+Install [bower](https//bower.io) by running `npm install -g bower`
 
 Then run 
 ```
@@ -32,7 +33,7 @@ Running `grunt dev` will setup a local web server showing the content (and be up
 Adding a dependency: 
 - a compile time [npm dependency]() run ``
 - a runtime [npm dependency]() run ``
-- a [bower dependency]() run ``
+- a [bower dependency]() run `bower install fontawesome --save`
 
 Refreshing npm dependencies: run `npm install`
 
