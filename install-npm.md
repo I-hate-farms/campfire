@@ -11,13 +11,15 @@ Installing node:
 ```
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install nodejs
+	mkdir ~/.cache/npm
 	npm config set prefix ~/.cache/npm
 	# TODO add export PATH="$PATH:$HOME/npm/bin"
 ```
 
-Installing grunt and bower 
+Installing grunt and bower command line tools **locally**
 ```
-	npm install -g grunt-cli 
-	npm install -g bower  
+	npm install grunt-cli 
+	npm install bower  
 ```
 
+## Uninstalling
