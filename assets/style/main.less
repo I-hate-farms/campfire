@@ -29,8 +29,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-// Header 
-
+// Header: not used
+/*
 header {
 	text-align: center;
 	background: @brand-success;
@@ -74,7 +74,7 @@ header {
 		}
 	}
 }
-
+*/
 // Navbar
 
 @media(min-width:768px) {
@@ -83,22 +83,26 @@ header {
         -webkit-transition: padding 0.3s;
         -moz-transition: padding 0.3s;
         transition: padding 0.3s;
+        // FIXME shouldn't this be in regular navbar??
+		background-color: @brand-primary;
+
 	    .navbar-brand {
+	    	// FIXME regular navbar??
+	    	color: white;
 	        font-size: 2em;
 	        -webkit-transition: all 0.3s;
 	        -moz-transition: all 0.3s;
 	        transition: all 0.3s;
-	    }        
+	    }     
+	    .navbar-right li a {
+	    	// FIXME regular navbar??
+	    	color: white;
+	    }      
     }
-    .navbar-fixed-top.navbar-shrink {
-        padding: 10px 0;
-		.navbar-brand {
-	        font-size: 1.5em;
-	    }    
-	}
 }
 
 .navbar {
+
 	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
 	font-weight: 700;
