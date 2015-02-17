@@ -105,14 +105,18 @@ module.exports = function(grunt) {
           src: ['**'],
           dest: 'build/images/'
         }, ],
-      }
-      /*toGithub: {
-        files: [
-          { expand: true, 
-            cwd: './build', 
-            src: ['**'], 
-            dest: '../campfire.gh-pages'},
-        ],
+      },
+      // FIXME workaround for bower/fontawesome deployment issue
+      // See http://stackoverflow.com/questions/21310382/fontawesome-is-not-working-when-project-is-built-with-grunt
+      /*fixBower: {
+        files: [{
+          //for font-awesome
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/font-awesome',
+          src: ['fonts/*.*'],
+          dest: 'build/vendor/fontawesome/fonts'
+        }]
       }*/
     },
 
@@ -132,6 +136,7 @@ module.exports = function(grunt) {
     bower: {
       install: {
         options: {
+          type: "byComponent",
           targetDir: './build/vendor'
         }
       }
@@ -263,7 +268,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy:images']);
+  grunt.registerTask('build', ['bower:install', 'assembleTutorials', 'jade', 'less', 'copy']);
   grunt.registerTask('dev', ['build', 'connect:dev', 'watch']);
   grunt.registerTask('default', ['build', 'connect:server']);
 

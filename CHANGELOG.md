@@ -1,8 +1,9 @@
-
-* 0.3
  - Bootstrap theme is overriden 
  - fix footer
+
+* 0.3
  - importer.less is not used
+ - adde npm install guide 
 
 * 0.2 
  - add documentation and contents

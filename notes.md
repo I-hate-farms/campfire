@@ -44,3 +44,12 @@ of p and then type markdown for that paragraph
 ## Working with bootstrap 
   - http://bootswatch.com/flatly/ 
   - http://bootsnipp.com/
+
+## Issues
+  - fontawesome and bower 
+  // CARL shouldn't be need in my opinion
+  // See :
+  //   https://github.com/FortAwesome/Font-Awesome/issues/5532
+  // and  
+  //   https://github.com/yatskevich/grunt-bower-task/issues/154
+ 

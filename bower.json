@@ -19,5 +19,15 @@
   "dependencies": {
     "bootstrap": "~3.3.2",
     "fontawesome": "~4.3.0"
+  },
+  "exportsOverride": {
+    "fontawesome": {
+      "fontawesome/css": "css/*.css",
+      "fontawesome/fonts": "fonts/*.eot",
+      "fontawesome/fonts": "fonts/*.svg",
+      "fontawesome/fonts": "fonts/*.ttf",
+      "fontawesome/fonts": "fonts/*.woff",
+      "fontawesome/fonts": "fonts/*.woff2"
+    }
   }
 }
