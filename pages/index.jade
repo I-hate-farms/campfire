@@ -1,7 +1,7 @@
 extends ../layout/layout.jade
 
 block content
-	.container
+	header.container
 		.row
 
 			.col-md-6
@@ -28,7 +28,7 @@ block content
 							warning ("Folder does exist, not creating file.");
 							return false;
 						}
-				+link('code.html') More code
+				p.text-right: +link('code.html') More code
 				
 	section#portfolio
 		.container

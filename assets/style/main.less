@@ -1,16 +1,17 @@
 @import "variables.less";
+@import "mixins.less" ;
 
 // Body 
 body {
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 /*p {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 p.small {
-	font-size: 16px;
+    font-size: 16px;
 }*/
 
 a,
@@ -18,128 +19,104 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-	color: @brand-success;
-	outline: none;
+    color: @brand-success;
+    outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-transform: uppercase;
-	font-weight: 700;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
+// Header
+/*header {
+    background: @brand-success;
+    color: white;
+    .container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a.active {
+        color: @brand-primary;
+    }
+}*/
 
-// Header: not used
-/*
-header {
-	text-align: center;
-	background: @brand-success;
-	color: white;
-	.container {
-		padding-top: 100px;
-		padding-bottom: 50px;
-	}
-	img {
-		display: block;
-		margin: 0 auto 20px;
-	}
-	.intro-text {
-		.name {
-			display: block;
-			font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-			text-transform: uppercase;
-			font-weight: 700;
-			font-size: 2em;
-		}
-		.skills {
-			font-size: 1.25em;
-			font-weight: 300;
-		}
-	}
-}
-
-@media(min-width:768px) {
-	header {
-		.container {
-			padding-top: 200px;
-			padding-bottom: 100px;
-		}
-		.intro-text {
-			.name {
-				font-size: 4.75em;
-			}
-			.skills {
-				font-size: 1.75em;
-			}
-		}
-	}
-}
-*/
 // Navbar
 
 @media(min-width:768px) {
     .navbar {
         padding: 25px 0;
-        -webkit-transition: padding 0.3s;
-        -moz-transition: padding 0.3s;
-        transition: padding 0.3s;
+        //-webkit-transition: padding 0.3s;
+        //-moz-transition: padding 0.3s;
+        //transition: padding 0.3s;
         // FIXME shouldn't this be in regular navbar??
-		background-color: @brand-primary;
+        background-color: @brand-primary;
 
-	    .navbar-brand {
-	    	// FIXME regular navbar??
-	    	color: white;
-	        font-size: 2em;
-	        -webkit-transition: all 0.3s;
-	        -moz-transition: all 0.3s;
-	        transition: all 0.3s;
-	    }     
-	    .navbar-right li a {
-	    	// FIXME regular navbar??
-	    	color: white;
-	    }      
+        .navbar-brand {
+            // FIXME regular navbar??
+            color: white;
+            font-size: 2em;
+            .transition( all, 0.3s);
+            &:hover {
+                color: fade(@brand-success, 90%);
+            }
+
+        }     
+        .navbar-right li a {
+            // FIXME regular navbar??
+            color: white;
+            .transition( all, 0.5s, ease);
+            &:hover {
+                color: fade(@brand-success, 90%);
+            }
+        }      
     }
 }
 
 .navbar {
 
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-transform: uppercase;
-	font-weight: 700;
-	a:focus {
-		outline: none;
-	}
-	.navbar-nav {
-		letter-spacing: 1px;
-		li {
-			a:focus {
-				outline: none;
-			}
-		}
-	}
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    a:focus {
+        outline: none;
+    }
+    .navbar-nav {
+        letter-spacing: 1px;
+        li {
+            a:focus {
+                outline: none;
+            }
+        }
+    }
 }
 
 .navbar-default,
 .navbar-inverse {
-	border: none;
+    border: none;
 }
 
 // Footer
 // Taken from freelance
 footer {
-	color: white;
-	h3 {
-		margin-bottom: 30px;
-	}
-	.footer-above {
-		padding-top: 50px;
-		background-color: @brand-primary;
-	}
-	.footer-col {
-		margin-bottom: 50px;
-	}
-	.footer-below {
-		padding: 25px 0;
-		background-color: darken(@brand-primary, 5%);
-	}
+    color: white;
+    h3 {
+        margin-bottom: 30px;
+    }
+    .footer-above {
+        padding-top: 50px;
+        background-color: @brand-primary;
+    }
+    .footer-col {
+        margin-bottom: 50px;
+    }
+    .footer-below {
+        padding: 25px 0;
+        background-color: darken(@brand-primary, 5%);
+    }
 }
