@@ -237,11 +237,11 @@ body {
   overflow-x: hidden;
 }
 /*p {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 p.small {
-	font-size: 16px;
+    font-size: 16px;
 }*/
 a,
 a:hover,
@@ -261,60 +261,48 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
-header {
-  text-align: center;
-  background: #18bc9c;
-  color: white;
-}
-header .container {
-  padding-top: 100px;
-  padding-bottom: 50px;
-}
-header img {
-  display: block;
-  margin: 0 auto 20px;
-}
-header .intro-text .name {
-  display: block;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 2em;
-}
-header .intro-text .skills {
-  font-size: 1.25em;
-  font-weight: 300;
-}
-@media (min-width: 768px) {
-  header .container {
-    padding-top: 200px;
-    padding-bottom: 100px;
-  }
-  header .intro-text .name {
-    font-size: 4.75em;
-  }
-  header .intro-text .skills {
-    font-size: 1.75em;
-  }
-}
+/*header {
+    background: @brand-success;
+    color: white;
+    .container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a.active {
+        color: @brand-primary;
+    }
+}*/
 @media (min-width: 768px) {
   .navbar {
     padding: 25px 0;
-    -webkit-transition: padding 0.3s;
-    -moz-transition: padding 0.3s;
-    transition: padding 0.3s;
+    background-color: #2c3e50;
   }
   .navbar .navbar-brand {
+    color: white;
     font-size: 2em;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    transition: all 0.3s linear;
   }
-  .navbar-fixed-top.navbar-shrink {
-    padding: 10px 0;
+  .navbar .navbar-brand:hover {
+    color: rgba(24, 188, 156, 0.9);
   }
-  .navbar-fixed-top.navbar-shrink .navbar-brand {
-    font-size: 1.5em;
+  .navbar .navbar-right li a {
+    color: white;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  .navbar .navbar-right li a:hover {
+    color: rgba(24, 188, 156, 0.9);
   }
 }
 .navbar {
@@ -352,4 +340,5 @@ footer .footer-below {
   padding: 25px 0;
   background-color: #233140;
 }
+
 

@@ -5,6 +5,7 @@
     <!-- The siteRoot is defined by grunt-->
     <link href="/campfire/vendor/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="/campfire/style/style.css" rel="stylesheet">
+    <!-- link(href="#{realSiteRoot}/vendor/fontawesome/font-awesome.css", rel="stylesheet")-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
@@ -18,18 +19,18 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="hidden"><a href="#page-top"></a>
             </li>
-            <li class="page-scroll"><a href="/campfire/learn/index.html">Learn</a>
+            <li><a href="/campfire/learn/index.html">Learn</a>
             </li>
-            <li class="page-scroll"><a href="/campfire/download.html">Download</a>
+            <li><a href="/campfire/download.html">Download</a>
             </li>
-            <li class="page-scroll"><a href="/campfire/community.html">Community</a>
+            <li><a href="/campfire/community.html">Community</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <div class="container">
-      <div class="container">
+      <header class="container">
         <div class="row">
           <div class="col-md-6">
             <h2>Vala at a glance</h2>
@@ -61,11 +62,12 @@
 } <span class="hljs-keyword">catch</span> (IOError.NOT_FOUND e) {
 	warning (<span class="hljs-string">"Folder does exist, not creating file."</span>);
 	<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-}
-</code></pre>
+}</code></pre>
+            <p class="text-right"><a href="code.html">More code</a>
+            </p>
           </div>
         </div>
-      </div>
+      </header>
       <section id="portfolio">
         <div class="container">
           <div class="row">
@@ -175,7 +177,7 @@
           </div>
         </div>
       </section>
-    </div>
+    </div><br><br>
     <footer class="text-center">
       <div class="footer-above">
         <div class="container">
