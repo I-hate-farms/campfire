@@ -1,0 +1,61 @@
+extends ../../layout/learning.jade
+
+block learning_content
+
+	+draft ("learn/ide-sublimetext")
+
+	h2
+		a(href='http://www.sublimetext.com/3') Sublime text 3 
+
+	h3 Features
+	ul 
+		li Syntax coloring
+		li Support for make and cmake
+		li Plugins
+	
+	h3 Screenshots
+	
+	img(src='/images/ide-sublimetext-thumb.png', alt='')
+
+	h3 Installation 
+	p TDB
+
+	h3 Setup 
+	p.
+		Steps taken from #[a(href='https://gist.github.com/Jguer/2f216d27d15bcae95c84') this tutorial]
+
+	
+	p.
+		Install the #[code Theme - Soda] and #[code Vala] plugins. 
+	p Go to  #[code Preferences -> Package Control -> Install Package] or hit #[code Ctrl]+ #[code P] and type
+	ul 
+		li Theme - Soda
+		li Vala
+
+	p.
+		Open  #[code Preferences -> Settings - User] and copy the following: 
+		
+	pre.
+		{
+			"caret_style": "smooth",
+			"drag_text": false,
+			"font_size": 10,
+			"ignored_packages":
+			[
+			"Vintage"
+			],
+			"open_files_in_new_window": false,
+			"shift_tab_unindent": true,
+			"soda_classic_tabs": false,
+			"tab_size": 2,
+			"theme": "Soda Light.sublime-theme",
+			"translate_tabs_to_spaces": false,
+			"tree_animation_enabled": false,
+			"word_wrap": true
+		}
+
+		
+
+	h3 Tips
+
+	a(href='https://leanpub.com/sublime-productivity/read') Productivity
