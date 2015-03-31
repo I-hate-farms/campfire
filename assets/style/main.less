@@ -29,22 +29,90 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+// Fancy line breaks 
+hr.star-light,
+hr.star-primary {
+    padding: 0;
+    border: none;
+    border-top: solid 5px;
+    text-align: center;
+    max-width: 250px;
+    margin: 25px auto 30px;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "\f005";
+    font-family: FontAwesome;
+    display: inline-block;
+    position: relative; 
+    top: -0.8em;  
+    font-size: 2em;
+    padding: 0 0.25em;
+}
+
+hr.star-light {
+    border-color: white;
+}
+
+hr.star-light:after {
+    background-color: @brand-success;
+    color: white;
+}
+
+hr.star-primary {
+    border-color: @brand-primary;
+}
+
+hr.star-primary:after {
+    background-color: white;
+    color: @brand-primary;
+}
+
 // Header
-/*header {
+header {
+    text-align: center;
     background: @brand-success;
     color: white;
     .container {
         padding-top: 100px;
         padding-bottom: 50px;
     }
-    a,
-    a:hover,
-    a:focus,
-    a:active,
-    a.active {
-        color: @brand-primary;
+    img {
+        display: block;
+        margin: 0 auto 20px;
     }
-}*/
+    .intro-text {
+        .name {
+            display: block;
+            font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2em;
+        }
+        .skills {
+            font-size: 1.25em;
+            font-weight: 300;
+        }
+    }
+}
+
+@media(min-width:768px) {
+    header {
+        .container {
+            padding-top: 200px;
+            padding-bottom: 100px;
+        }
+        .intro-text {
+            .name {
+                font-size: 4.75em;
+            }
+            .skills {
+                font-size: 1.75em;
+            }
+        }
+    }
+}
 
 // Navbar
 

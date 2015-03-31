@@ -1,9 +1,13 @@
- - Bootstrap theme is overriden 
  - fix footer
-
-* 0.3
+ - Add livereload 
+ - Add documentation about ide (geany and monodevelop)
+ - Added tutorials and gtk resources 
+ 
+* 0.3 2015/02/18 
  - importer.less is not used
- - adde npm install guide 
+ - added npm install guide 
+ - fix header 
+ - add header section in layout
 
 * 0.2 
  - add documentation and contents

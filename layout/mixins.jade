@@ -14,3 +14,10 @@ mixin link(href)
 	else
 		a(href="#{href}" class!=attributes.class)
 			block
+
+mixin feature (title, href, icon)
+	p
+		.icon: i( class="fa fa-5x #{icon}")
+		h4: +link('#{href}') #{title}
+		p
+			block

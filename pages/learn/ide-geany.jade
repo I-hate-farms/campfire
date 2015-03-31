@@ -1,0 +1,68 @@
+extends ../../layout/learning.jade
+
+block learning_content
+
+	+draft ("learn/ide-geany")
+
+	h2
+		a(href='http://www.geany.org/') Geany 
+
+	h3 Features
+	ul 
+		li Syntax coloring
+		li Gtk3 (beta)
+		li Build system (make and cmake)
+		li Document outline
+		li
+			a(href="http://plugins.geany.org/") Plugins
+	
+	h3 Screenshot
+	
+	img(src='/images/ide-geany-thumb.png', alt='')
+
+	h3 Installation 
+
+	h4 Installation from repository 
+	p Geany is available in the repositories along with  #[a(href="http://plugins.geany.org/install.html") plugins]
+	pre.
+		sudo apt-get install geany geany-plugins 
+
+	h4 Build geany for gtk3 
+	p Geany for gtk3 is not at the moment in the repository and need to be built
+
+	pre.
+		git clone git@github.com:geany/geany.git
+		./autogen.sh  --enable-gtk3 --disable-html-docs --prefix=/usr
+		make 
+		sudo make install 
+
+	p You may install #[a(href="https://github.com/codebrainz/geany-themes/tree/master/screenshots") geany themes] with  
+	pre.
+		wget https://github.com/codebrainz/geany-themes/archive/master.zip
+		unzip master.zip 
+		mv geany-themes-master/colorschemes ~/.config/geany/colorschemes
+
+	p Build the plugins with gtk3 (some plugin might not support gtk3 at the moment) 
+	pre.
+		wget https://github.com/geany/geany-plugins/archive/master.zip
+		unzip geany-plugins-master.zip
+		cd geany-plugins-master/ 
+		./waf configure
+		./waf build -p
+		sudo ./waf install
+
+		./autogen.sh  --enable-gtk3 --disable-html-docs --prefix=/usr
+		make 
+		sudo make install 
+
+	p.
+		Check that the plugins are correctly loaded and not error is displayed in the
+		debug message dialog.
+
+	img(src='/images/ide-geany-debug-messages.png', alt='') 
+	h3 Setup for vala 
+
+	p TBD
+
+	h3 More
+	a(href="http://www.teejeetech.in/2012/12/vala-3-setting-up-ide.html") How to set up Geany

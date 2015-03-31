@@ -1,0 +1,45 @@
+extends ../../layout/learning.jade
+
+block learning_content
+
+	+draft ("learn/ide-and-editors")
+
+
+	h2: a(href='http://www.geany.org/Documentation/Screenshots') Geany 
+	
+	img(src='/images/ide-geany-thumb.png', alt='')
+
+	h3 Features
+	ul 
+		li Syntax coloring
+		li Gtk3 (beta)
+		li Build system (make and cmake)
+		li Document outline
+
+	h3: +link('/learn/ide-geany.html') How to set up Geany.
+	
+
+	h2: a(href='http://www.geany.org/Documentation/Screenshots') Monodevelop 
+	h3 Features
+	ul 
+		li Syntax coloring
+		li Breakpoint
+		li Full completion (language and package based)
+		li Solution and project files (sln mdproj)
+		li Plugins
+
+	img(src='/images/ide-monodevelop-thumb.png', alt='')
+
+	h3: +link('/learn/ide-monodevelop.html') How to set up Monodevelop. 
+
+
+	h2: a(href='http://atom.io') Atom 
+
+	h3: +link('/learn/ide-atom.html') How to set up Atom. 
+
+	h2: a(href='http://atom.io') Sublime text 3 
+
+	h3 More info
+	a(href='https://leanpub.com/sublime-productivity/read') Productivity tips
+
+

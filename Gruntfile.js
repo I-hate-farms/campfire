@@ -157,12 +157,20 @@ module.exports = function(grunt) {
       },
       pages: {
         files: ['pages/**/*.jade', 'layout/*.jade'],
+        options: {
+          livereload: true,
+          interval: 1500
+        },
         // we need the tutorial list to generate pages, so
         // we have to run that task as well
         tasks: ['assembleTutorials', 'jade:pages']
       },
       layout: {
         files: ['layout/*.jade'],
+        options: {
+          livereload: true,
+          interval: 1500
+        },        
         tasks: ['jade']
       }
     },
@@ -176,7 +184,8 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          base: 'build'
+          base: 'build',
+          livereload: true
         }
       }
     }
